@@ -6,6 +6,9 @@ then
     exit 1
 fi
 
+echo "Sit back and relax, this will take some time."
+echo "If You've used command from github, system should reboot after succesfull execution of this script. If not, please reboot it manually"
+
 add-apt-repository -y ppa:papirus/papirus
 add-apt-repository -y ppa:webupd8team/java
 apt update && apt upgrade -y
@@ -31,4 +34,20 @@ mkdir -p $XFCE_CONFIG_FOLDER/xfconf/xfce-perchannel-xml && rm -f $XFCE_CONFIG_FO
 mv desktop-scripts/xfce_conf/xfce-perchannel-xml/* $XFCE_CONFIG_FOLDER/xfconf/xfce-perchannel-xml/
 mv desktop-scripts/xfce_conf/panel/*  $XFCE_CONFIG_FOLDER/panel/
 
+echo "alias c='xclip -selection clipboard'" >> /home/$SUDO_USER/.bashrc
+mkdir -p /home/$SUDO_USER/.ssh
+
+# silent oracle installation - possibly migrate to openjdk later?
+echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
 apt install -y oracle-java8-installer
+
+echo "Script will attempt a cleanup and reboot in:"
+secs=5
+while [ $secs -gt 0 ]; do
+   echo -ne "$secs\033[0K\r"
+   sleep 1
+   : $((secs--))
+done
+
+
+rm -rf desktop-scripts
