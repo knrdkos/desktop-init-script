@@ -21,6 +21,7 @@ snap install spotify pdftk telegram-desktop
 snap install --classic intellij-idea-ultimate
 
 git clone https://github.com/knrdkos/desktop-scripts.git
-mv desktop-scripts/*.sh /usr/local/bin/
+mv desktop-scripts/usr_local_bin/*.sh /usr/local/bin/
+rm -rf desktop-scripts
 
 apt install -y oracle-java8-installer
