@@ -3,5 +3,5 @@ Setup script for my desktop on Xubuntu 18.04
 Should be run after clean os install, using command:
 
 ```
-wget https://raw.githubusercontent.com/knrdkos/desktop-scripts/master/initial.sh && chmod +x initial.sh && sudo bash initial.sh && rm initial.sh && reboot
+wget https://raw.githubusercontent.com/knrdkos/desktop-init-script/master/init.sh && chmod +x init.sh && sudo bash init.sh && rm init.sh && reboot
 ```
