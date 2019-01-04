@@ -1,0 +1,6 @@
+Command=/usr/local/bin/panel_indicator.sh
+UseLabel=0
+Text=(genmon)
+UpdatePeriod=2000
+Font=Noto Sans Bold 11
+

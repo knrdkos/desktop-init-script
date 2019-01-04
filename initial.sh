@@ -22,6 +22,13 @@ snap install --classic intellij-idea-ultimate
 
 git clone https://github.com/knrdkos/desktop-scripts.git
 mv desktop-scripts/usr_local_bin/*.sh /usr/local/bin/
-rm -rf desktop-scripts
+
+XFCE_CONFIG_FOLDER=/home/$SUDO_USER/.config/xfce4
+
+mkdir -p $XFCE_CONFIG_FOLDER/panel && rm -f $XFCE_CONFIG_FOLDER/panel/*
+mkdir -p $XFCE_CONFIG_FOLDER/xfconf/xfce-perchannel-xml && rm -f $XFCE_CONFIG_FOLDER/xfconf/xfce-perchannel-xml/*
+
+mv desktop-scripts/xfce_conf/xfce-perchannel-xml/* $XFCE_CONFIG_FOLDER/xfconf/xfce-perchannel-xml/
+mv desktop-scripts/xfce_conf/panel/*  $XFCE_CONFIG_FOLDER/panel/
 
 apt install -y oracle-java8-installer
